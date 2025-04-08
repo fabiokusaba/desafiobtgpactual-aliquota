@@ -16,13 +16,13 @@ public class Aplicacao
         
     }
 
-    public Aplicacao(decimal valor, DateTime dataAplicacao, int fundoId, int clienteId)
+    public Aplicacao(decimal valor, int fundoId, int clienteId)
     {
         if(valor <= 0)
             throw new ArgumentException("O valor da aplicação não pode ser menor ou igual a zero.", nameof(valor));
         
         Valor = valor;
-        DataAplicacao = dataAplicacao;
+        DataAplicacao = DateTime.Now;
         FundoId = fundoId;
         ClienteId = clienteId;
     }
