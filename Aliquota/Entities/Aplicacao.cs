@@ -5,7 +5,9 @@ public class Aplicacao
     public int Id { get; set; }
     public decimal Valor { get; set; }
     public DateTime DataAplicacao { get; set; }
+    public FundoInvestimento FundoInvestimento { get; set; }
     public int FundoId { get; set; }
+    public Cliente Cliente { get; set; }
     public int ClienteId { get; set; }
     
     
