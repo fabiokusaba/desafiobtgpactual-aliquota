@@ -1,0 +1,6 @@
+@Aliquota_HostAddress = http://localhost:5259
+
+GET {{Aliquota_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
