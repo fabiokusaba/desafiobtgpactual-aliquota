@@ -29,6 +29,10 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             .Property(r => r.ValorResgate)
             .HasColumnType("decimal(18,2)");
         
+        modelBuilder.Entity<Resgate>()
+            .Property(r => r.ValorLiquido)
+            .HasColumnType("decimal(18,2)");
+        
         modelBuilder.Entity<Aplicacao>()
             .HasOne<Cliente>(a => a.Cliente)
             .WithMany(cl => cl.Aplicacoes)
