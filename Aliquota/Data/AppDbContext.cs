@@ -21,6 +21,14 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             .WithMany(fi => fi.Aplicacoes)
             .HasForeignKey(ap => ap.FundoId);
         
+        modelBuilder.Entity<Resgate>()
+            .Property(r => r.ImpostoDeRenda)
+            .HasColumnType("decimal(18,2)");
+        
+        modelBuilder.Entity<Resgate>()
+            .Property(r => r.ValorResgate)
+            .HasColumnType("decimal(18,2)");
+        
         modelBuilder.Entity<Aplicacao>()
             .HasOne<Cliente>(a => a.Cliente)
             .WithMany(cl => cl.Aplicacoes)
