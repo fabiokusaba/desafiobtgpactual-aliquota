@@ -6,7 +6,9 @@ public class Resgate
     public decimal ValorResgate { get; set; }
     public decimal ImpostoDeRenda { get; set; }
     public DateTime DataResgate { get; set; }
+    public FundoInvestimento FundoInvestimento { get; set; }
     public int FundoId { get; set; }
+    public Cliente Cliente { get; set; }
     public int ClienteId { get; set; }
 
     public Resgate(decimal valorResgate, DateTime dataResgate, Aplicacao aplicacao)
