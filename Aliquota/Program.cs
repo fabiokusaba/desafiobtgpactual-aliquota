@@ -1,4 +1,6 @@
 using Aliquota.Data;
+using Aliquota.Services;
+using Aliquota.Services.Impl;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), mysqlVersion);
 });
+
+builder.Services.AddScoped<IAliquotaService, AliquotaServiceImpl>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
