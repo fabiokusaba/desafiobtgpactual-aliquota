@@ -7,5 +7,5 @@ public interface IAliquotaService
 {
     Task<AplicacaoDto> Aplicar(Requisicao requisicao);
     Task<ResgateDto> Resgatar(Requisicao requisicao);
-    Task<FundoInvestimentoDetalhesDto> Listar();
+    Task<List<FundoInvestimentoDetalhesDto>> Listar();
 }
