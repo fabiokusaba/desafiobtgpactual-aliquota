@@ -1,6 +1,14 @@
+using Aliquota.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var mysqlVersion = new MySqlServerVersion(new Version(8, 0, 29));
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), mysqlVersion);
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
