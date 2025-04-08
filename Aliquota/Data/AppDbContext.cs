@@ -13,6 +13,10 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Aplicacao>()
+            .Property(a => a.Valor)
+            .HasColumnType("decimal(18,2)");
+        
+        modelBuilder.Entity<Aplicacao>()
             .HasOne<FundoInvestimento>(a => a.FundoInvestimento)
             .WithMany(fi => fi.Aplicacoes)
             .HasForeignKey(ap => ap.FundoId);
