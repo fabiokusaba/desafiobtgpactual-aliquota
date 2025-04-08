@@ -10,14 +10,12 @@ public class Resgate
     public int FundoId { get; set; }
     public Cliente Cliente { get; set; }
     public int ClienteId { get; set; }
+    public decimal ValorLiquido { get; set; }
 
-    public Resgate(decimal valorResgate, DateTime dataResgate, Aplicacao aplicacao)
+    public Resgate(decimal valorResgate, Aplicacao aplicacao)
     {
-        if (dataResgate < aplicacao.DataAplicacao)
-            throw new ArgumentException("A data do resgate não pode ser menor que a data da aplicação.");
-        
         ValorResgate = valorResgate;
-        DataResgate = dataResgate;
+        DataResgate = DateTime.Now;
         CalcularImpostoDeRenda(aplicacao);
     }
     
@@ -38,6 +36,6 @@ public class Resgate
             _ => lucro * 0.15m
         };
 
-        ValorResgate -= ImpostoDeRenda;
+        ValorLiquido = ValorResgate - ImpostoDeRenda;
     }
 }
